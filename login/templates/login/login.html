@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login page</title>
+</head>
+<body>
+    <div align="center">
+        <form class="form-login" action="/login/" method="post">
+            {% if login_form.captcha.errors %}
+                <div class="alert alert-warning">{{ login_form.captcha.errors }}</div>
+            {% elif message %}
+                <div class="alert alert-warning">{{ message }}</div>
+            {% endif %}
+            <h1>Login here!</h1>
+            {% csrf_token %}
+            {{ login_form.as_p }}
+            <input type="submit" value="login"><br />
+            <a href="/register/">register</a>
+        </form>
+
+    </div>
+
+</body>
+</html>
